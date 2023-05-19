@@ -1,23 +1,33 @@
-import logo from './logo.svg';
+import { logDOM } from '@testing-library/react';
 import './App.css';
+import React, { useState } from 'react';
+import SignatureCanvas from 'react-signature-canvas';
 
 function App() {
+const [sign, setSign] = useState();
+const [url, setUrl] = useState();
+
+function handleClear(){
+  sign.clear();
+}
+
+function handleSave(){
+  setUrl(sign.getTrimmedCanvas().toDataURL('image/png'));
+  // console.log(sign);
+}
+
+console.log(url);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div style={{border:"1px solid black", width:500, height: 200}}>
+          <SignatureCanvas 
+            canvasProps={{width: 500, height: 200, className: 'sigCanvas'}} 
+            ref={data=>setSign(data)}
+          ></SignatureCanvas>
+      </div>
+      <button onClick={()=> handleSave()}> Save </button>
+      <button onClick={()=> handleClear()}> Clear </button>
     </div>
   );
 }
