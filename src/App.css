@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 .App {
   text-align: center;
 }
@@ -40,7 +45,6 @@
 
 
 .form1 {
-  margin: 10px;
   text-align: left;
   max-width: 700px;
   margin: auto;
@@ -50,6 +54,7 @@
   font-size: 15px;
   color: gray;
   font-style: italic;
+  margin: 10px 0;
 }
 .form1 h2 {
   font-size: 20px;
@@ -58,10 +63,12 @@
   margin: 25px auto 10px auto;
 }
 .form1 .checkbox {
-  display: block;
+  display: grid;
+  grid-template-columns: 30px auto;
   margin-left:-5px;
   margin-bottom: 5px;
 }
+
 .form1 .field {
   border: 1px solid lightgray;
   border-radius: 5px;
@@ -122,4 +129,34 @@
   width: fit-content;
   padding: 5px 10px;
   background-color: white;
+}
+
+@media screen and (max-width: 650px) {
+  
+  .form1 {
+    max-width: 90%;
+    margin: auto;
+    /* border: 1px solid red; */
+    position: relative;
+    left: -2.5%;
+    top: 10px;
+  }
+  .form1 h1 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .form1 h2, .form1 h3 {
+    font-size: 15px;
+  }
+  .form1 #introduction {
+    margin-top: 10px;
+    font-size: 10px;
+    margin-bottom: 15px;
+  }
+  .form1 .two-col, .form1 .wrapper-signatures {
+    display: block;
+  }
+  .checks {
+    margin-left: 5px;
+  }
 }

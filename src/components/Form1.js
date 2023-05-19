@@ -108,10 +108,10 @@ function Form1() {
         <h1> Application For Credit </h1>
         <p id="introduction"> The applicant (the “Customer”) hereby applying for credit to be extended to it by TTF Scaffolding Inc. (“TTF”) agrees to provide, on request, such further and other documents and information, including but not limited to financial statements and/or net worth statements, to TTF prior to credit being approved or extended. The Customer agrees that TTF is under no obligation to accept this application or to extend credit to the Customer. The Customer further agrees that if this application is accepted, TTF may refuse to extend credit, may increase the amount of credit, or may reduce the amount of credit previously extended, at any time without providing reasons for such refusal, increase, or reduction. If two or more principals, partners, companies or other legal entities are listed on this application, then the obligations and liabilities of such principals, partners, companies or other legal entities to TTF shall be joint and several. The terms and conditions of rental will be as specified in Terms and Conditions of TTF as provided to the Customer at the time of the application for credit, and as available at <a href='ttfscaffolding.com'>www.ttfscaffolding.com</a>.</p>
 
-        <h2> Customer and related information </h2>
+        <h3> Customer and related information </h3>
 
 
-        {/* =======  TYPE OF BUSINESS  ======= */}
+ 
         <h3> Type of bussines:</h3>
         <label className='checkbox'>
           <input
@@ -122,7 +122,6 @@ function Form1() {
           />
           Sole Propietor
         </label>
-
         <label className='checkbox'>
           <input
             type="radio"
@@ -132,7 +131,6 @@ function Form1() {
             />
           Incorporated Company
         </label>
-
         <label className='checkbox'>
           <input
             type="radio"
@@ -142,6 +140,9 @@ function Form1() {
             />
           Partnership
         </label>
+
+        <br></br>
+       
 
         <div className='two-col'>
             <div className='field'>
@@ -345,16 +346,8 @@ function Form1() {
             </div>
             
         </div>
-
-      
-           
-        
-
-
   
       <button onClick={()=> handleSave()}> Submit </button>
-  
-
 
     </div>
   )
