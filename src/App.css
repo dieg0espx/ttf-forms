@@ -1,3 +1,4 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 * {
   box-sizing: border-box;
   margin: 0;
@@ -42,7 +43,25 @@
   }
 }
 
-
+.confirmation {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  left: 0;top: 0;
+  z-index: 999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: gray;
+}
+.confirmation .iconCheck {
+  margin-top: -200px;
+  color: green;
+  font-size: 100px;
+  margin-bottom: 30px;
+}
 
 .form1 {
   text-align: left;
@@ -60,7 +79,7 @@
   width: 100%;
   height:60px;
   padding: 0 20px;
-  z-index: 999;
+  z-index: 998;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 .form1 .header img {

@@ -8,6 +8,7 @@ import { doc, setDoc } from "firebase/firestore";
 function Form1() {
     const db = getFirestore(app);
 
+    const [formCompleted, setFormCompleted] = useState(false);
     const [sign1, setSign1] = useState();
     const [sign2, setSign2] = useState();
     const [url, setUrl] = useState();
@@ -101,7 +102,7 @@ function Form1() {
         }
         try {
             await setDoc(doc(db, "form1", legalNameOfBusiness), data);
-            console.log("Document successfully written!");
+            setFormCompleted(true);
           } catch (error) {
             // console.error("Error writing document: ", error);
             alert("You are missing some fields.")
@@ -111,6 +112,12 @@ function Form1() {
 
   return (
     <div className='form1'>
+        <div className='confirmation' style={{display:formCompleted ? "flex":"none"}}>
+            <i className="bi bi-check-circle iconCheck"></i>
+            <h1> Application Completed </h1>
+            <p> Thanks !</p>
+        </div>
+
         <div className='header'>
             <img src='https://ttfscaffolding.com/wp-content/uploads/2022/11/logo-1.png'></img>
         </div>
