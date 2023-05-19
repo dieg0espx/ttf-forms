@@ -99,12 +99,21 @@ function Form1() {
          signatory2Date,
          signatory2Sign : sign2.getTrimmedCanvas().toDataURL('image/png').toString()
         }
-        await setDoc(doc(db, "form1", legalNameOfBusiness), data);
+        try {
+            await setDoc(doc(db, "form1", legalNameOfBusiness), data);
+            console.log("Document successfully written!");
+          } catch (error) {
+            // console.error("Error writing document: ", error);
+            alert("You are missing some fields.")
+          }
       }
 
 
   return (
     <div className='form1'>
+        <div className='header'>
+            <img src='https://ttfscaffolding.com/wp-content/uploads/2022/11/logo-1.png'></img>
+        </div>
         <h1> Application For Credit </h1>
         <p id="introduction"> The applicant (the “Customer”) hereby applying for credit to be extended to it by TTF Scaffolding Inc. (“TTF”) agrees to provide, on request, such further and other documents and information, including but not limited to financial statements and/or net worth statements, to TTF prior to credit being approved or extended. The Customer agrees that TTF is under no obligation to accept this application or to extend credit to the Customer. The Customer further agrees that if this application is accepted, TTF may refuse to extend credit, may increase the amount of credit, or may reduce the amount of credit previously extended, at any time without providing reasons for such refusal, increase, or reduction. If two or more principals, partners, companies or other legal entities are listed on this application, then the obligations and liabilities of such principals, partners, companies or other legal entities to TTF shall be joint and several. The terms and conditions of rental will be as specified in Terms and Conditions of TTF as provided to the Customer at the time of the application for credit, and as available at <a href='ttfscaffolding.com'>www.ttfscaffolding.com</a>.</p>
 
@@ -322,7 +331,7 @@ function Form1() {
                         ></SignatureCanvas>
                     </div>
                 </div>
-                <button onClick={()=> handleClear1()}> Clear </button> 
+                <button className="btnClear" onClick={()=> handleClear1()}> Clear </button> 
             </div>
             <div className='signer'>
                 <div className='field'>
@@ -342,13 +351,11 @@ function Form1() {
                         ></SignatureCanvas>
                     </div>
                 </div>
-                <button onClick={()=> handleClear2()}> Clear </button> 
+                <button className="btnClear" onClick={()=> handleClear2()}> Clear </button> 
             </div>
             
         </div>
-  
-      <button onClick={()=> handleSave()}> Submit </button>
-
+      <button className='btnSubmit' onClick={()=> handleSave()}> Submit </button>
     </div>
   )
 }
