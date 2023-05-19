@@ -138,7 +138,7 @@
     margin: auto;
     /* border: 1px solid red; */
     position: relative;
-    left: -2.5%;
+    left: 0;
     top: 10px;
   }
   .form1 h1 {
@@ -152,11 +152,22 @@
     margin-top: 10px;
     font-size: 10px;
     margin-bottom: 15px;
+    text-align: justify;
   }
   .form1 .two-col, .form1 .wrapper-signatures {
     display: block;
   }
   .checks {
     margin-left: 5px;
+  }
+  input[type="date"]{
+    min-width: calc(100% - 35px) !important;
+    background-color: transparent;
+    line-height: 40px;
+    text-align: left;
+  }
+  .wrapper-signPad {
+    /* margin: 10px auto; */
+    width: 100%;
   }
 }
