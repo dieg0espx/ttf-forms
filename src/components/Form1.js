@@ -16,6 +16,7 @@ function Form1() {
     const [typeOfBusiness, setTypeOfBusiness] = useState();
     const [legalNameOfBusiness, setLegalNameOfBusiness] = useState();
     const [businessRegistrationNo, setBusinessRegistrationNo] = useState();
+    const [businessStreetAddress, setBusinessStreetAddress] = useState();
     const [dateBusinessStarted, setDateBusinessStarted] = useState();
     const [noEmployees, setNoEmployees] = useState();
     const [apPhone, setApPhone] = useState();
@@ -28,11 +29,11 @@ function Form1() {
     const [owner1Email, setOwner1Email] = useState();
     const [owner1Phone, setOwner1Phone] = useState();
     const [owner1Address, setOwner1Address] = useState();
-    const [owner2Name, setOwner2Name] = useState();
-    const [owner2Percentage, setOwner2Porcentage] = useState();
-    const [owner2Email, setOwner2Email] = useState();
-    const [owner2Phone, setOwner2Phone] = useState();
-    const [owner2Address, setOwner2Address] = useState();
+    const [owner2Name, setOwner2Name] = useState("");
+    const [owner2Percentage, setOwner2Porcentage] = useState("");
+    const [owner2Email, setOwner2Email] = useState("");
+    const [owner2Phone, setOwner2Phone] = useState("");
+    const [owner2Address, setOwner2Address] = useState("");
     const [reference1Name, setReference1Name] = useState();
     const [reference1Email, setReference1Email] = useState();
     const [reference1Phone, setReference1Phone] = useState();
@@ -45,9 +46,9 @@ function Form1() {
     const [signatory1Name, setSignatory1Name] = useState();
     const [signatory1Date, setSignatory1Date] = useState();
     const [signatory1Sign, setSignatory1Sign] = useState();
-    const [signatory2Name, setSignatory2Name] = useState();
-    const [signatory2Date, setSignatory2Date] = useState();
-    const [signatory2Sign, setSignatory2Sign] = useState();
+    const [signatory2Name, setSignatory2Name] = useState("");
+    const [signatory2Date, setSignatory2Date] = useState("");
+    const [signatory2Sign, setSignatory2Sign] = useState("");
 
 
       
@@ -67,6 +68,7 @@ function Form1() {
          typeOfBusiness,
          legalNameOfBusiness, 
          businessRegistrationNo, 
+         businessStreetAddress,
          dateBusinessStarted, 
          noEmployees,
          apPhone, 
@@ -169,6 +171,10 @@ function Form1() {
                 <p> Business Registration # </p>
                 <input className="textInput" type='text' onChange={(event) => setBusinessRegistrationNo(event.target.value)} placeholder='Business Registration #' />
             </div>
+        </div>
+        <div className='field'>
+            <p> Business Street Address: </p>
+            <input className="textInput" type='date' onChange={(event) => setBusinessStreetAddress(event.target.value)} placeholder='Date Business Started' />
         </div>
         <div className='two-col'>
             <div className='field'>
