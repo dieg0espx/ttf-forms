@@ -174,7 +174,7 @@ function Form1() {
         </div>
         <div className='field'>
             <p> Business Street Address: </p>
-            <input className="textInput" type='date' onChange={(event) => setBusinessStreetAddress(event.target.value)} placeholder='Date Business Started' />
+            <input className="textInput" type='text' onChange={(event) => setBusinessStreetAddress(event.target.value)} placeholder='Date Business Started' />
         </div>
         <div className='two-col'>
             <div className='field'>
