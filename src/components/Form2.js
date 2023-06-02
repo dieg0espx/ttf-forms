@@ -115,9 +115,9 @@ function Form2() {
         <br></br>
         <h2> Customer Credit Details: </h2>
         
-        <div className='field'>
-            <p> How long has this customer had an account with your company ? </p>
-            <input className="textInput" type='text' onChange={(event) => setTimeWithAccount(event.target.value)} placeholder='How long has this customer had an account with your company ?' />
+        <div className='field' id="doubleHeight">
+            <p id="longText"> How long has this customer had an account with your company ? </p>
+            <input className="textInput" type='text' onChange={(event) => setTimeWithAccount(event.target.value)} placeholder='' />
         </div>
         <div className='two-col'>
             <div className='field'>
