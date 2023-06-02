@@ -1,19 +1,37 @@
-import { logDOM } from '@testing-library/react';
-import './App.css';
-import React, { useState } from 'react';
-import SignatureCanvas from 'react-signature-canvas';
-import Form1 from './components/Form1';
-import Form2 from './components/Form2';
-
-
+import { logDOM } from "@testing-library/react";
+import "./App.css";
+import React, { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useActionData,
+} from "react-router-dom";
+import SignatureCanvas from "react-signature-canvas";
+import Form1 from "./components/Form1";
+import Form2 from "./components/Form2";
 
 function App() {
-
-
   return (
     <div className="App">
-      {/* <Form1 /> */}
-      <Form2 />
+      <div>
+        
+        <Router>
+          <div className="App">
+            <div className="content">
+              <Routes>
+                <Route path="/" element={<Form1 />} />
+              </Routes>
+              <Routes>
+                <Route path="/form1" element={<Form1 />} />
+              </Routes>
+              <Routes>
+                <Route path="/form2" element={<Form2 />} />
+              </Routes>
+            </div>
+          </div>
+        </Router>        
+      </div>
     </div>
   );
 }
