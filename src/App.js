@@ -23,10 +23,10 @@ function App() {
                 <Route path="/" element={<Form1 />} />
               </Routes>
               <Routes>
-                <Route path="/form1" element={<Form1 />} />
+                <Route path="/applicationsForCredit" element={<Form1 />} />
               </Routes>
               <Routes>
-                <Route path="/form2" element={<Form2 />} />
+                <Route path="/creditRequest" element={<Form2 />} />
               </Routes>
             </div>
           </div>
