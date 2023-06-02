@@ -205,7 +205,7 @@ function Form2() {
                 <div className='wrapper-signPad'>
                     <div style={{width:340, height: 160}}>
                         <SignatureCanvas 
-                          canvasProps={{width: 340, height: 200, className: 'sigCanvas'}} 
+                          canvasProps={{width: 340, height: 170, className: 'sigCanvas'}} 
                           ref={sign1=>setSign1(sign1)}
                         ></SignatureCanvas>
                     </div>
