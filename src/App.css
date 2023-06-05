@@ -225,6 +225,51 @@ textarea {
 }
 
 
+#title-authorization {
+  text-align: center;
+}
+.card-form {
+  background-image: url("./components/bg-creditCard.png"); /* The image used */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+
+  width: 480px;
+  height: 300px;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 50px 0px;
+  padding: 150px 30px 0 30px;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.card-form p {
+  width: 100%;
+  /* border: 1px solid white; */
+  color: white  ;
+  margin-bottom: 10px;
+}
+#numOnCard {
+  letter-spacing: 6px;
+  font-size: 25px;
+}
+.card-form .two-col {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.card-form .two-col p{
+  width: fit-content;
+}
+
+
+
+
+
 @media screen and (max-width: 650px) {
   
   .form1 {

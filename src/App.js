@@ -10,6 +10,7 @@ import {
 import SignatureCanvas from "react-signature-canvas";
 import Form1 from "./components/Form1";
 import Form2 from "./components/Form2";
+import Form3 from "./components/Form3";
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
               </Routes>
               <Routes>
                 <Route path="/creditRequest" element={<Form2 />} />
+              </Routes>
+              <Routes>
+                <Route path="/creditCardAuthorization" element={<Form3 />} />
               </Routes>
             </div>
           </div>
