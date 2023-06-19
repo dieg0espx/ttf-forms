@@ -4,8 +4,14 @@
   margin: 0;
   padding: 0;
 }
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background: transparent;
+}
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -92,6 +98,7 @@
   color: gray;
   font-style: italic;
   margin: 10px 0;
+
 }
 .form1 h2 {
   font-size: 20px;
@@ -189,6 +196,7 @@
   font-size: 18px;
   font-weight: bold;
   border-radius: 30px;
+  
 }
 
 select {
@@ -228,31 +236,48 @@ textarea {
 #title-authorization {
   text-align: center;
 }
+
+#wrapper-card {
+  /* border: 1px solid black; */
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
 .card-form {
   background-image: url("./components/bg-creditCard.png"); /* The image used */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
 
-  width: 480px;
-  height: 300px;
-  margin: 20px auto;
+  width: 550px;
+  height: 250px;
+  margin: 20px 0;
   border-radius: 10px;
-  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 50px 0px;
-  padding: 150px 30px 0 30px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
   font-weight: bold;
-  font-size: 20px;
+  font-size: 15px;
   font-family: 'Courier New', Courier, monospace;
+  color: white;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card-form p {
   width: 100%;
-  /* border: 1px solid white; */
   color: white  ;
   margin-bottom: 10px;
 }
 #numOnCard {
   letter-spacing: 6px;
+  font-size: 18px;
+}
+#providerOnCard {
+  width: 350px;
+  margin: 0 auto 80px auto;
+  text-align: right;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 25px;
 }
 .card-form .two-col {
@@ -265,7 +290,22 @@ textarea {
 .card-form .two-col p{
   width: fit-content;
 }
+.card-details {
+  position: absolute;
+}
 
+.consent {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  display: inline-block
+}
+.consent input {
+  display: inline;
+}
+.consent p {
+  display: inline;
+  margin-left: 5px;
+}
 
 
 
@@ -325,4 +365,425 @@ textarea {
   #textArea textarea {
     margin-left: 10px;
   }
+}
+
+
+
+ /* ================================= */
+
+ .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* border: 1px solid red; */
+  background-color: white;
+  border-bottom: 1px solid lightgray;
+  width: 100%;
+  height:60px;
+  padding: 0 20px;
+  z-index: 998;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  display: flex;
+  justify-content: left;
+}
+
+ .header img {
+  height: 50px;
+  margin: 5px;
+}
+
+.grid {
+  height: calc(100vh - 90px);
+  display: grid;
+  grid-template-columns: auto 350px;
+}
+
+.applications {
+  overflow-y: scroll;
+}
+
+.wrapper-applications {
+  display: flex;
+  flex-wrap: wrap;
+  /* border: 1px solid red; */
+  justify-content: left;
+  margin-top: 30px;
+}
+
+.navigation-bar  {
+  width: fit-content;
+  margin-top: 90px;
+  margin-left: 10px;
+}
+
+.navigation-bar button {
+  padding: 10px 35px;
+  color: gray;
+  background-color: white;
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+  margin-right: 10px;
+  outline: none;
+  font-weight: bold;
+}
+
+.navigation-bar button:hover{
+  color: white;
+  background-color: #5b83e8;
+}
+.navigation-bar .selected {
+  color: white;
+  background-color: #5b83e8;
+}
+
+.table-applications {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-applications td, .table-applications th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.table-applications th {
+  color: white;
+  background-color: #5b83e8;
+}
+.table-applications tr:hover {
+  background-color: rgb(233, 233, 233);
+}
+
+.row-application {
+  width: 100%;
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+}
+.row-application:hover {
+  transition: 0.4s;
+  transform: translateY(-5px);
+}
+
+.nameOfBusiness {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.applications-data {
+  margin: 50px -20px 0px 0;
+  padding: 10px 20px;
+  background-color: white;
+  border-left: 1px solid lightgray;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.applications-data .data {
+  /* border: 1px solid red; */
+  height: 85vh !important;
+}
+
+.data-element {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+
+.data-element h2 {
+  font-size: 12px;
+  font-weight: bold;
+  margin-right: 5px;
+}
+.data-element p {
+  color: gray;
+}
+.applications-data{
+  overflow-y: scroll;
+  height: calc(100vh - 50px);
+  padding-bottom: 30px;
+}
+.applications-data h1 {
+  font-size: 21px;
+  text-align: left;
+}
+.applications-data .label {
+  margin: 12px 0;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+}
+.applications-data .btnHide {
+  border: none;
+  background-color: transparent;
+  display: block;
+  margin: 10px auto 5px -5px;
+}
+
+.applications-data .btn-printApplication {
+  width: 90%;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 0px;
+  color: white;
+  background-color: #5b83e8;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 45px; 
+}
+
+.references-divider {
+  margin: 10px 0 ; 
+  border: 1px solid rgb(237, 237, 237);
+}
+
+.wrapper-sheet {
+  height: 100vh;
+  margin: 0px 0px 0 0px;
+  /* border: 1px solid red; */
+  background-color: white;
+}
+
+
+.sheet-header {
+  display:grid;
+  grid-template-columns: 33% 33% 33%;
+  height: 110px;
+  /* border:  1px solid red; */
+  align-items: center;
+  border-bottom: 2px solid black;
+  padding-bottom:10px ;
+}
+.sheet-header img {
+  height: 90px;
+}
+.sheet-header h1 {
+  font-size:15px;
+  text-align: center;
+}
+.sheet-header p {
+  text-align: right;
+  font-size: 15px;
+}
+
+
+#sheet-introduction {
+  width: 100%;
+  font-size: 10px;
+  margin: 10px 0;
+  text-align: left;
+}
+
+.sheet h2 {
+  font-size: 15px;
+  margin-bottom: 10px;
+  text-align:left;
+}
+.sheet h3 {
+  font-size: 12px;
+  text-align: left;
+}
+.sheet p {
+  font-size: 12px;
+  
+}
+
+
+#grid1 {
+  display: grid;
+  grid-template-columns: 150px auto;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  text-align: left;
+}
+#type-of-business-grid {
+  padding: 3px 5px;
+  text-align: left;
+}
+#grid1 .block-right {
+  border-left: 1px solid black;
+}
+#grid1 #legalNameOfBusiness {
+  padding: 2px 10px;
+  border-bottom: 1px solid black;
+}
+#grid1 #businessRegistrationNumber {
+  padding: 3px 10px;
+}
+
+
+#grid2 {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+#businessAddress {
+  padding: 5px;
+  border-right: 1px solid black;
+  text-align: left;
+}
+
+#grid2 .block {
+  padding: 3px;
+  border-bottom: 1px solid black;
+  text-align: left;
+}
+
+#grid2 .block h3, #grid2 .block p {
+    display: inline;  
+}
+.noBottomBorder {
+  border-bottom: none !important;
+}
+
+#grid3 {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+#bankAddress {
+  padding: 5px;
+  text-align: left;
+}
+#grid3 .block {
+  padding: 3px;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  text-align: left;
+}
+
+#grid4 {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  border: 1px solid black;
+  text-align: left;
+}
+#grid4 h3, #grid4 p {
+  display: inline;  
+}
+.notInline {
+  display: block !important;
+}
+#owner1 {
+  border-right: 1px solid black;
+}
+#owner1, #owner2 {
+  padding: 3px;
+}
+
+
+.reference {
+  display: grid;
+  grid-template-columns: auto 8% 24% 8% 24% 8% 24%;
+  margin-bottom: 5px;
+}
+
+.reference .bold {
+  font-weight: bold;
+}
+
+#grid5 {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  text-align: center;
+  margin-top: 40px;
+}
+#grid5 img {
+  width: 170px;
+  height:50px;
+  padding: 3px 10px;
+  border-bottom: 1px solid black;
+}
+
+iframe { display: none;}
+
+
+
+/*  =========== SHEET - CREDIT REQUESTS =========== */
+.wrapper-sheet .field {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  margin-top: 5px;
+  width: 100%;
+}
+.wrapper-sheet .field h2 {
+  width: fit-content;
+  display: block;
+  margin: 0; padding: 0;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+}
+.wrapper-sheet .field p {
+  display: block;
+  margin: 0; padding: 0;
+  font-size: 16px;
+  line-height: 20px;
+  border-bottom: 2px solid lightgray;
+  padding-left: 10px;
+  padding-bottom: 3px;
+  width: 100%;
+} */
+.two-col {
+  display: grid;
+  grid-template-columns: calc(50% - 5px) calc(50% - 5px) ;
+  gap: 10px;
+}
+
+#sheet2-subtitle {
+  font-size:18px;
+  font-weight: bold;
+  margin: 20px auto;
+}
+#additionalComments {
+  border: 2px solid lightgray;
+  min-height: 80px;
+  font-size: 16px;
+  padding: 8px;
+}
+
+#signatory-area {
+  margin-top: 60px;
+}
+#sheet2-sign {
+  position: absolute;
+  margin-left: 100px;
+  margin-top: -35px;
+  width: 265px;
+  height: 50px;
+  padding: 0 70px;
+  border-bottom:  2px solid lightgray;
+}
+
+
+
+
+.applications-data .card-form {
+  width: 310px;
+  height: 200px;
+}
+.applications-data .card-details {
+  width: 300px;
+}
+.applications-data #providerOnCard {
+  width: 90%;
+  margin: 5px 10px 50px auto;
+}
+.applications-data #nameOnCard {
+  width: 95%;
+  margin: 10px auto;
+  text-align: left;
+}
+.applications-data #numOnCard {
+  font-size: 15px;
+}
+.applications-data .two-col {
+  width: 95%;
+  margin: 15px auto 0 auto;
 }
