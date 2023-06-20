@@ -14,6 +14,7 @@ import CreditRequest from "./pages/CreditRequest"
 import CreditCardAuthorizations from "./pages/CreditCardAuthorizations"
 import Sheet from "./pages/Sheet"
 import SheetCreditRequest from "./pages/SheetCreditRequest"
+import SheetCardAuthorization from './pages/SheetCardAuthorization'
 
 import Form1 from "./components/Form1";
 import Form2 from "./components/Form2";
@@ -44,6 +45,10 @@ function App() {
               <Routes>
                 <Route path="/sheetCreditRequest" element={<SheetCreditRequest/>} />
               </Routes>
+              <Routes>
+                <Route path="/sheetCardAuthorization" element={<SheetCardAuthorization/>} />
+              </Routes>
+ 
 
               {/* ===== CUSTOMER ACCESS ===== */}
 

@@ -17,7 +17,6 @@ function CreditCardAuthorizations() {
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       const applications = querySnapshot.docs.map((doc) => doc.data());
-      console.log(doc.data());
       setCreditApplications(applications);
     });
   }
@@ -97,15 +96,13 @@ function detectCardType(cardNumber) {
           </table>
          </div>
        </div>
-       <div className='applications-data' style={{display: dataIndex ? "block":"none"}}>
+       <div id="data-cardAuthorization" className='applications-data' style={{display: dataIndex ? "block":"none"}}>
          {creditApplications.map((application, i) => (
            i === dataIndex-1 && ( 
            <div>
            <div className='data'>
              <button className="btnHide" onClick={()=>setDataIndex(null)}> <i className="bi bi-chevron-compact-left"></i> Close </button>
              <h1> {application.companyName}</h1>
-             {/* <p className='label'>  Customer and Related Information </p> */}
-             <br></br>
              <div className='card-form'> 
                 <div className='card-details'>
                     <p id="providerOnCard"> {detectCardType(application.numOnCard)}</p>
@@ -151,7 +148,7 @@ function detectCardType(cardNumber) {
                <p> {application.province}</p>
              </div>
             </div>
-           <button className='btn-printApplication' onClick={()=>printSheet('/sheet/?id=' + dataIndex)}> <i className="bi bi-printer-fill"></i> Print Application </button>
+           <button className='btn-printApplication' onClick={()=>printSheet('/sheetCardAuthorization?id=' + dataIndex)}> <i className="bi bi-printer-fill"></i> Print Application </button>
            </div>
            )
          ))}
