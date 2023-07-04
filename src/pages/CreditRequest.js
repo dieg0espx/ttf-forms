@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { getFirestore, collection, query, getDocs } from 'firebase/firestore';
 import { app } from '../Firebase';
+import NewDestinatary from '../components/NewDestinatary';
 
 
 function CreditRequest() {
@@ -42,13 +43,14 @@ function CreditRequest() {
     <div className="App">
     <div className='header'>
          <img src='https://ttfscaffolding.com/wp-content/uploads/2022/11/logo-1.png'></img>
+         <NewDestinatary />
      </div>
      <div className='grid' style={{display: dataIndex ? "grid":"block"}}>
        <div className='applications'>
           <div className='navigation-bar'>
-            <button onClick={()=> window.location ='/creditApplication'}> Credit Applications </button>
+            <button onClick={()=> window.location ='/creditForms/#/creditApplication'}> Credit Applications </button>
             <button className='selected'> Credit Requests </button>
-            <button onClick={()=> window.location ='/creditCardAuthorization'}> Credit Card Authorizations </button>
+            <button onClick={()=> window.location ='/creditForms/#/creditCardAuthorization'}> Credit Card Authorizations </button>
           </div>
          <div className='wrapper-applications'> 
          <table className='table-applications'>
@@ -150,7 +152,7 @@ function CreditRequest() {
              
              
            </div>
-           <button className='btn-printApplication' onClick={()=>printSheet('/sheetCreditRequest/?id=' + dataIndex)}> <i className="bi bi-printer-fill"></i> Print Application </button>
+           <button className='btn-printApplication' onClick={()=>printSheet('/creditForms/#/sheetCreditRequest/?id=' + dataIndex)}> <i className="bi bi-printer-fill"></i> Print Application </button>
            </div>
            )
          ))}

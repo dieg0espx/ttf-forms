@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { getFirestore, collection, query, getDocs } from 'firebase/firestore';
 import { app } from '../Firebase';
+import NewDestinatary from '../components/NewDestinatary';
 
 
 function CreditCardAuthorizations() {
@@ -69,12 +70,13 @@ function detectCardType(cardNumber) {
     <div className="App">
     <div className='header'>
          <img src='https://ttfscaffolding.com/wp-content/uploads/2022/11/logo-1.png'></img>
+         <NewDestinatary />
      </div>
      <div className='grid' style={{display: dataIndex ? "grid":"block"}}>
        <div className='applications'>
           <div className='navigation-bar'>
-            <button onClick={()=> window.location ='/creditApplication'}> Credit Applications </button>
-            <button onClick={()=> window.location ='/creditRequest'}> Credit Requests </button>
+            <button onClick={()=> window.location ='/creditForms/#/creditApplication'}> Credit Applications </button>
+            <button onClick={()=> window.location ='/creditForms/#/creditRequest'}> Credit Requests </button>
             <button className='selected'> Credit Card Authorizations </button>
           </div>
          <div className='wrapper-applications'> 
@@ -148,7 +150,7 @@ function detectCardType(cardNumber) {
                <p> {application.province}</p>
              </div>
             </div>
-           <button className='btn-printApplication' onClick={()=>printSheet('/sheetCardAuthorization?id=' + dataIndex)}> <i className="bi bi-printer-fill"></i> Print Application </button>
+           <button className='btn-printApplication' onClick={()=>printSheet('/creditForms/#/sheetCardAuthorization?id=' + dataIndex)}> <i className="bi bi-printer-fill"></i> Print Application </button>
            </div>
            )
          ))}

@@ -8,39 +8,29 @@ function SheetCardAuthorization() {
 
   const [creditApplications, setCreditApplications] = useState([]);
   const [dataIndex, setDataIndex] = useState(null);
-  
+
   useEffect(()=>{
     setDataIndex(window.location.href.split('=')[1]);
-  },[])
-
-
-  async function printDocs(){
+    fetchDocs();
+  })
+  async function fetchDocs(){
     const q = query(collection(db, "form3"));
-
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       const applications = querySnapshot.docs.map((doc) => doc.data());
-      console.log(applications);
       setCreditApplications(applications);
     });
   }
-
-
-  useEffect(()=>{
-    printDocs();
-  },[])
-
-
-  useEffect(() => {
-    const handlePrint = () => {
+  let imagesLoaded = 0;
+  function imageLoaded(){ 
+    imagesLoaded ++;
+    console.log(imagesLoaded);
+    if(imagesLoaded == 1){
       window.print();
-    };
-
-    if (creditApplications.length > 0) {
-    //   handlePrint();
     }
-  }, [creditApplications]);
-  
+  }
+
+
   return (
     <div className='wrapper-sheet'>
       {creditApplications.map((application, i) => (
@@ -132,7 +122,7 @@ function SheetCardAuthorization() {
         <div className='two-col' id='signatory-area'>
             <div className='field'>
                 <h2> Signatory: </h2>
-                <img id="sheet3-sign" src={application.sign}></img>
+                <img id="sheet3-sign" src={application.sign} onLoad={()=> imageLoaded()}></img>
             </div>
             <div className='field'>
                 <h2> Print Name: </h2>

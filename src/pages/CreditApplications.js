@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { getFirestore, collection, query, getDocs } from 'firebase/firestore';
 import { app } from '../Firebase';
+import NewDestinatary from '../components/NewDestinatary';
 
 
 function CreditApplications() {
@@ -10,6 +11,10 @@ function CreditApplications() {
   const [creditApplications, setCreditApplications] = useState([]);
   const [dataIndex, setDataIndex] = useState(null);
   const [sheetURL, setSheetURL] = useState("");
+
+
+
+
 
   async function printDocs(){
     const q = query(collection(db, "form1"));
@@ -35,17 +40,19 @@ function CreditApplications() {
     }
   }
 
+
   return (
     <div className="App">
     <div className='header'>
          <img src='https://ttfscaffolding.com/wp-content/uploads/2022/11/logo-1.png'></img>
+          <NewDestinatary />
      </div>
      <div className='grid' style={{display: dataIndex ? "grid":"block"}}>
        <div className='applications'>
           <div className='navigation-bar'>
             <button className='selected'> Credit Applications </button>
-            <button onClick={()=> window.location ='/creditRequest'}> Credit Requests </button>
-            <button onClick={()=> window.location ='/creditCardAuthorization'}> Credit Card Authorizations </button>
+            <button onClick={()=> window.location ='/creditForms/#/creditRequest'}> Credit Requests </button>
+            <button onClick={()=> window.location ='/creditForms/#/creditCardAuthorization'}> Credit Card Authorizations </button>
           </div>
          <div className='wrapper-applications'> 
          <table className='table-applications'>
@@ -206,7 +213,7 @@ function CreditApplications() {
              </div>
            </div>
            <br></br>
-           <button className='btn-printApplication' onClick={()=>printSheet('/sheet/?id=' + dataIndex)}> <i className="bi bi-printer-fill"></i> Print Application </button>
+           <button className='btn-printApplication' onClick={()=>printSheet('/creditForms/#/sheet/?id=' + dataIndex)}> <i className="bi bi-printer-fill"></i> Print Application </button>
            </div>
            )
          ))}

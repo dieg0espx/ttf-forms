@@ -9,35 +9,25 @@ function SheetCreditRequest() {
     const [dataIndex, setDataIndex] = useState(null);
     
     useEffect(()=>{
-      setDataIndex(window.location.href.split('=')[1]);
-    },[])
-
-    async function printDocs(){
-        const q = query(collection(db, "form2"));
-    
-        const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((doc) => {
-          const applications = querySnapshot.docs.map((doc) => doc.data());
-          console.log(applications);
-          setCreditRequests(applications);
-        });
+        setDataIndex(window.location.href.split('=')[1]);
+        fetchDocs();
+    })
+    async function fetchDocs(){
+      const q = query(collection(db, "form2"));
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        const applications = querySnapshot.docs.map((doc) => doc.data());
+        setCreditRequests(applications);
+      });
     }
-
-    useEffect(()=>{
-        printDocs();
-    },[])
-
-    // FUNCTION TO PRINT THE PAGE ONCE EVERYTHING IS FULLY LOADED
-
-    useEffect(() => {
-        const handlePrint = () => {
-          window.print();
-        };
-    
-        if (creditRequests.length > 0) {
-          handlePrint();
-        }
-    }, [creditRequests]);
+    let imagesLoaded = 0;
+    function imageLoaded(){ 
+      imagesLoaded ++;
+      console.log(imagesLoaded);
+      if(imagesLoaded == 1){
+        window.print();
+      }
+    }
 
   return (
     <div className='wrapper-sheet'>
@@ -137,7 +127,7 @@ function SheetCreditRequest() {
         <div className='two-col' id='signatory-area'>
             <div className='field'>
                 <h2> Signatory: </h2>
-                <img id="sheet2-sign" src={application.sign}></img>
+                <img id="sheet2-sign" src={application.sign} onLoad={()=> imageLoaded()}></img>
             </div>
             <div className='field'>
                 <h2> Print Name: </h2>

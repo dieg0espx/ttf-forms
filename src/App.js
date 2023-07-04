@@ -25,7 +25,7 @@ function App() {
     <div className="App">
       <div>
         
-        <Router>
+        
           <div className="App">
             <div className="content">
 
@@ -64,9 +64,13 @@ function App() {
               <Routes>
                 <Route path="/form-creditCardAuthorization" element={<Form3 />} />
               </Routes>
+
+              {/* <Routes>
+                <Route path="/*" element={<Form1 />} />
+              </Routes> */}
             </div>
           </div>
-        </Router>        
+ 
       </div>
     </div>
   );
