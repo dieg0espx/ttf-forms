@@ -30,6 +30,11 @@ function NewDestinatary() {
          .then(response => response.text())
          .then(result => console.log("Email Sent: " + result))
          .catch(error => console.log('== ERROR === ', error));
+
+        alert("Email sent to: " + destinataryEmail + " successfully !");
+        
+        setSelectedForm("")
+        setDestinataryEmai("")
     }
 
     const handleInputChange = (event) => {
@@ -44,7 +49,7 @@ function NewDestinatary() {
              <option value="creditRequest"> New Credit Request</option>
              <option value="creditCardAuthorization"> New Credit Card Authorization </option>
          </select>
-         <input type='email' placeholder='example@mail.com' onChange={handleInputChange}></input>
+         <input type='email' value={destinataryEmail} placeholder='example@mail.com' onChange={handleInputChange}></input>
          <button onClick={()=> sendEmail()}> Send </button>
     </div>
   )
